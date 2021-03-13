@@ -2,13 +2,15 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using Kalum2021.Models;
 
+using System;
+
 namespace Kalum2021.ModelView
 {
     public class RoleViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public ObservableCollection<Role> roles {get;set;}
+       
+         public ObservableCollection<Role> roles {get;set;}
 
         public RoleViewModel()        
         {
@@ -24,5 +26,7 @@ namespace Kalum2021.ModelView
             PropertyChanged(this, new PropertyChangedEventArgs(propiedad));
         }
     }
+
+     
     }
 }
