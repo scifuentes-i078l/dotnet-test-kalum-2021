@@ -12,7 +12,7 @@ namespace Kalum2021.ModelView
 {
     public class UsuariosViewModel: INotifyPropertyChanged, ICommand
     {
-        public ObservableCollection<Usuarios> usuarios {get;set;}
+        public ObservableCollection<Usuarios> Usuarios {get;set;}
         public event PropertyChangedEventHandler PropertyChanged;
 
         public UsuariosViewModel Instancia {get;set;}
@@ -24,10 +24,10 @@ namespace Kalum2021.ModelView
         public UsuariosViewModel()
         {
             this.Instancia= this;
-            this.usuarios= new ObservableCollection<Usuarios>();
-            this.usuarios.Add(new Usuarios(1,"etumax",true,"Edwin Rolando","Tumax Chaclan", "etumax@gmail.com"));
-            this.usuarios.Add(new Usuarios(2,"nperez",true,"Nancy Elizabeth","Perez Carcamo", "eperez@gmail.com"));
-            this.usuarios.Add(new Usuarios(3,"caquino",true,"Cesar Augusto","Aquino Gaitan", "caquino@gmail.com"));
+            this.Usuarios= new ObservableCollection<Usuarios>();
+            this.Usuarios.Add(new Usuarios(1,"etumax",true,"Edwin Rolando","Tumax Chaclan", "etumax@gmail.com"));
+            this.Usuarios.Add(new Usuarios(2,"nperez",true,"Nancy Elizabeth","Perez Carcamo", "eperez@gmail.com"));
+            this.Usuarios.Add(new Usuarios(3,"caquino",true,"Cesar Augusto","Aquino Gaitan", "caquino@gmail.com"));
         }
 
         public void NotificarCambio(string propiedad)
@@ -41,7 +41,7 @@ namespace Kalum2021.ModelView
 
         public void agregarElemento(Usuarios nuevo) 
         {
-            this.usuarios.Add(nuevo);
+            this.Usuarios.Add(nuevo);
         }
         public bool CanExecute(object parametro)
         {
@@ -60,7 +60,7 @@ namespace Kalum2021.ModelView
                 if (this.Seleccionado==null){
                     MessageBox.Show("Debe seleccionar un elemento");
                 }else{
-                    this.usuarios.Remove(Seleccionado);
+                    this.Usuarios.Remove(Seleccionado);
                 }
                 
             }

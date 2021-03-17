@@ -33,7 +33,7 @@ namespace Kalum2021
        }
        public void VentanaRoles(Object sender, RoutedEventArgs e)
        {
-           RoleView VentanaRoles = new RoleView();
+           RolesView VentanaRoles = new RolesView();
            VentanaRoles.ShowDialog();
        }
     }

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Estudiante\\Mis documentos\\2021\\Kinal\\NET\\prod\\Kalum2021\\Kalum2021.csproj",
+      "projectUniqueName": "C:\\Users\\Estudiante\\Documents\\2021\\Kinal\\NET\\prod\\Kalum2021\\Kalum2021.csproj",
       "projectName": "Kalum2021",
-      "projectPath": "C:\\Users\\Estudiante\\Mis documentos\\2021\\Kinal\\NET\\prod\\Kalum2021\\Kalum2021.csproj",
+      "projectPath": "C:\\Users\\Estudiante\\Documents\\2021\\Kinal\\NET\\prod\\Kalum2021\\Kalum2021.csproj",
       "packagesPath": "C:\\Users\\Estudiante\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Estudiante\\Mis documentos\\2021\\Kinal\\NET\\prod\\Kalum2021\\obj\\",
+      "outputPath": "C:\\Users\\Estudiante\\Documents\\2021\\Kinal\\NET\\prod\\Kalum2021\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

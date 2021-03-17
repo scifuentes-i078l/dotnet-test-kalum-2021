@@ -3,12 +3,12 @@ using Kalum2021.ModelView;
 
 namespace Kalum2021.Views
 {
-    public partial class RoleView : Window
+    public partial class RolesView : Window
     {
-        public RoleView()
+        public RolesView()
         {
             InitializeComponent();
-            RoleViewModel ModeloDatos = new RoleViewModel();
+            RolesViewModel ModeloDatos = new RolesViewModel();
             this.DataContext = ModeloDatos;
         }
     }
