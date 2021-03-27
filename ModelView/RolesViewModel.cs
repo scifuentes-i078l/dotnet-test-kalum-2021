@@ -50,7 +50,7 @@ namespace Kalum2021.ModelView
         public void Execute(object parametro)
         {
             if (parametro.Equals("Nuevo")){
-
+                this.Seleccionado=null;
                 RolView nuevoRol= new RolView(Instancia);
                 nuevoRol.Show();
                 
@@ -61,6 +61,13 @@ namespace Kalum2021.ModelView
                     this.Roles.Remove(Seleccionado);
                 }
                 
+            } else if (parametro.Equals("Modificar")){
+                if (this.Seleccionado== null){
+                    MessageBox.Show("Debe seleccionar un elemento");
+                }else{
+                    RolView modificarRol = new RolView(Instancia);
+                    modificarRol.ShowDialog();
+                }
             }
         }
     }

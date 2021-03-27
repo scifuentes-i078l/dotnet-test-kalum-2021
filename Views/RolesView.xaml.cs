@@ -1,9 +1,9 @@
 using System.Windows;
 using Kalum2021.ModelView;
-
+using MahApps.Metro.Controls;
 namespace Kalum2021.Views
 {
-    public partial class RolesView : Window
+    public partial class RolesView : MetroWindow
     {
         public RolesView()
         {

@@ -27,13 +27,11 @@ C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netco
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netcoreapp3.1\Kalum2021.pdb
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Kalum2021.csprojAssemblyReference.cache
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\MainWindow.g.cs
-C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\RoleView.g.cs
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\UsuariosView.g.cs
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Kalum2021_MarkupCompile.cache
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Kalum2021_MarkupCompile.lref
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\MainWindow.baml
-C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\RoleView.baml
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\UsuariosView.baml
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Kalum2021.g.resources
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Kalum2021.AssemblyInfoInputs.cache
@@ -50,3 +48,14 @@ C:\Users\Estudiante\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp
 C:\Users\Estudiante\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\RolesView.baml
 C:\Users\Estudiante\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\RolView.g.cs
 C:\Users\Estudiante\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\RolView.baml
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\RolesView.g.cs
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\RolView.g.cs
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\RolesView.baml
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\RolView.baml
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netcoreapp3.1\ControlzEx.dll
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netcoreapp3.1\MahApps.Metro.dll
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netcoreapp3.1\Microsoft.Xaml.Behaviors.dll
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netcoreapp3.1\de\MahApps.Metro.resources.dll
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\App.baml
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Kalum2021.csproj.CopyComplete

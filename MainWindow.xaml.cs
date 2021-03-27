@@ -13,28 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Kalum2021.Models;
+using Kalum2021.ModelView;
 using Kalum2021.Views;
+using MahApps.Metro.Controls;
 
 namespace Kalum2021
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public MainWindow()
         {
             InitializeComponent();
+            MainViewModel modelo = new MainViewModel();
+
+            this.DataContext=modelo;
+
+            
         }
-       public void VentanaUsuarios(Object sender, RoutedEventArgs e)
-       {
-           UsuariosView VentanaUsuarios = new UsuariosView();
-           VentanaUsuarios.ShowDialog();
-       }
-       public void VentanaRoles(Object sender, RoutedEventArgs e)
-       {
-           RolesView VentanaRoles = new RolesView();
-           VentanaRoles.ShowDialog();
-       }
+      
     }
 }

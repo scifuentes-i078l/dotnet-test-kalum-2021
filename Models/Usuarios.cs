@@ -10,11 +10,13 @@ namespace Kalum2021.Models
        public string Email {get;set;}
        public string Password {get;set;}
 
+     
+
        public Usuarios()
        {
            
        }
-       public Usuarios(int Id, string Username, bool Enabled, string Nombre, string Apellidos, string Email)
+       public Usuarios(int Id, string Username, bool Enabled, string Nombres, string Apellidos, string Email)
        {
             this.Id= Id;
             this.Username = Username;
