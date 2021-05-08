@@ -26,13 +26,19 @@ namespace Kalum2021.ModelView
 
         public void Execute(object parametro)
         {
-            if (parametro.Equals("Usuarios")){
-                UsuariosView ventanaUsuarios = new UsuariosView();
-                ventanaUsuarios.ShowDialog();
-            } 
-            else if (parametro.Equals("Roles")){
-                RolesView ventanaRoles = new RolesView();
-                ventanaRoles.ShowDialog();
+            switch(parametro){
+                case "Usuarios":
+                    UsuariosView ventanaUsuarios = new UsuariosView();
+                    ventanaUsuarios.ShowDialog();
+                break;
+                case "Roles":
+                    RolesView ventanaRoles = new RolesView();
+                    ventanaRoles.ShowDialog();
+                break;
+                case "Instructores":
+                    InstructoresView ventanaInstructores = new InstructoresView();
+                    ventanaInstructores.ShowDialog();
+                break;
             }
         }
     }
