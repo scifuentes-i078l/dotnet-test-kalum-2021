@@ -2,9 +2,11 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using Kalum2021.DataContext;
 using Kalum2021.Models;
 using Kalum2021.Views;
 using MahApps.Metro.Controls.Dialogs;
+using System.Linq;
 
 namespace Kalum2021.ModelView
 {
@@ -13,22 +15,33 @@ namespace Kalum2021.ModelView
         public event EventHandler CanExecuteChanged;
         public event PropertyChangedEventHandler PropertyChanged;
 
-
-        public ObservableCollection<Alumno> ListadoAlumnos {get;set;}
+        private ObservableCollection<Alumno> _ListadoAlumnos;
+        public ObservableCollection<Alumno> ListadoAlumnos {
+            get
+            {
+                if (this._ListadoAlumnos ==null)
+                {
+                    this._ListadoAlumnos= new ObservableCollection<Alumno>(dBContext.Alumnos.ToList());
+                }
+                return this._ListadoAlumnos;
+            }
+            set
+            {
+                this._ListadoAlumnos=value;
+            }
+            }
         public Alumno Seleccionado {get;set;}
 
         public AlumnosViewModel Instancia {get;set;}
 
         public IDialogCoordinator dialogCoordinator;
 
+        public KalumDBContext dBContext = new KalumDBContext();
+
         public AlumnosViewModel(IDialogCoordinator instanceIDialog)
         {
             this.Instancia=this;
             this.dialogCoordinator= instanceIDialog;
-            this.ListadoAlumnos = new ObservableCollection<Alumno>();
-            this.ListadoAlumnos.Add (new Alumno("1","exp1","Apellidos1","Alumno1","email1@kinal.edu"));
-            this.ListadoAlumnos.Add (new Alumno("2","exp2","Apellidos2","Alumno2","email2@kinal.edu"));
-            this.ListadoAlumnos.Add (new Alumno("3","exp3","Apellidos3","Alumno3","email3@kinal.edu"));
         }
 
         public void NotificarCambio(string propiedad)
