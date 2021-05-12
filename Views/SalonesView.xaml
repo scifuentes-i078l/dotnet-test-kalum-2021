@@ -17,16 +17,16 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid Margin= "10" ColumnWidth ="*" CanUserAddRows="False" SelectedItem ="{Binding Seleccionado}" Grid.Row="0" Grid.Column="0" ItemsSource= "{Binding Listado}" >
+        <DataGrid Margin= "10" ColumnWidth ="*" CanUserAddRows="False" SelectedItem ="{Binding Seleccionado}" Grid.Row="0" Grid.Column="0" ItemsSource= "{Binding Listado}" AutoGenerateColumns = "false" >
             <DataGrid.Columns>
             <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
                             EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
                             Header="Seleccionar"
                             Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}" />
-                <DataGridTextColumn Binding="{Binding Salon_id}" Header="ID" IsReadOnly="true"/>
+                <DataGridTextColumn Binding="{Binding SalonId}" Header="ID" IsReadOnly="true"/>
                 <DataGridTextColumn Binding="{Binding Capacidad}" Header="Capacidad" IsReadOnly="true"/>
                 <DataGridTextColumn Binding="{Binding Descripcion}" Header="Descripcion" IsReadOnly="true"/>
-                <DataGridTextColumn Binding="{Binding Nombre_salon}" Header="Nombre" IsReadOnly="true"/>
+                <DataGridTextColumn Binding="{Binding NombreSalon}" Header="Nombre" IsReadOnly="true"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">

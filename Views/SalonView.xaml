@@ -23,13 +23,13 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0"  Grid.Column="0" Content="Id" />
-        <TextBox Grid.Row="0" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Salon_id}"/>
+        <TextBox Grid.Row="0" Margin="0,5,0,0" Grid.Column="1" Text="{Binding SalonId}"/>
         <Label Grid.Row="1"    Grid.Column="0" Content="Capacidad" />
         <TextBox Grid.Row="1" Margin="0,5,0,0"  Grid.Column="1" Text="{Binding Capacidad}"/>
         <Label Grid.Row="2"   Grid.Column="0" Content="Descripcion" />
         <TextBox Grid.Row="2" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Descripcion}"/>
         <Label Grid.Row="3"  Grid.Column="0" Content="Nombre" />
-        <TextBox Grid.Row="3" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Nombre_salon}"/>        
+        <TextBox Grid.Row="3" Margin="0,5,0,0" Grid.Column="1" Text="{Binding NombreSalon}"/>        
         <StackPanel HorizontalAlignment="Right" Margin = "5" Grid.Row="5" Grid.ColumnSpan="2"  Orientation="Horizontal" >
             <Button  Width="200" Content="Guardar" Command="{Binding Instancia}" CommandParameter="{Binding ElementName=FrmSalon}"/>            
         </StackPanel>      

@@ -2,9 +2,11 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using Kalum2021.DataContext;
 using Kalum2021.Models;
 using Kalum2021.Views;
 using MahApps.Metro.Controls.Dialogs;
+using System.Linq;
 
 namespace Kalum2021.ModelView
 {
@@ -12,7 +14,24 @@ namespace Kalum2021.ModelView
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
-        public ObservableCollection<Salon> Listado {get;set;}
+        public KalumDBContext dBContext = new KalumDBContext();
+
+        private ObservableCollection<Salon> _Listado;
+        public ObservableCollection<Salon> Listado {
+            get
+            {
+                if (this._Listado ==null)
+                {
+                    this._Listado= new ObservableCollection<Salon>(dBContext.Salones.ToList());
+                }
+                return this._Listado;
+            }
+            set
+            {
+                this._Listado=value;
+            }
+            }
+        
         public Salon Seleccionado {get;set;}
 
         public SalonesViewModel Instancia {get;set;}
@@ -25,8 +44,7 @@ namespace Kalum2021.ModelView
         {
             this.Instancia=this;
             this.dialogCoordinator=instanceIDialog;
-            this.Listado= new ObservableCollection<Salon>();
-            this.Listado.Add(new Salon("1",1,"salon 1","salon 1"));            
+        
         }
 
         public void agregarElemento(Salon nuevoElemento)

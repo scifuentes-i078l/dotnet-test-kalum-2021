@@ -16,13 +16,13 @@ namespace Kalum2021.ModelView
 
         public SalonesViewModel SalonesViewModel {get;set;}
 
-        public string Salon_id {get;set;}
+        public string SalonId {get;set;}
 
         public int Capacidad {get;set;}
 
         public string Descripcion {get;set;}
         
-        public string Nombre_salon {get;set;}
+        public string NombreSalon {get;set;}
 
         public Salon instanciaTemporal {get;set;}
 
@@ -36,10 +36,10 @@ namespace Kalum2021.ModelView
             if (this.SalonesViewModel.Seleccionado!=null)
             {
                 instanciaTemporal = new Salon();
-                this.Salon_id=this.SalonesViewModel.Seleccionado.Salon_id;
+                this.SalonId=this.SalonesViewModel.Seleccionado.SalonId;
                 this.Capacidad=this.SalonesViewModel.Seleccionado.Capacidad;
                 this.Descripcion=this.SalonesViewModel.Seleccionado.Descripcion;
-                this.Nombre_salon=this.SalonesViewModel.Seleccionado.Nombre_salon;             
+                this.NombreSalon=this.SalonesViewModel.Seleccionado.NombreSalon;             
             }
             
         }
@@ -55,14 +55,14 @@ namespace Kalum2021.ModelView
             {
 
                 if (this.SalonesViewModel.Seleccionado  == null){                    
-                    Salon nuevo = new Salon(Salon_id,Capacidad,Descripcion,Nombre_salon);                                        
+                    Salon nuevo = new Salon(SalonId,Capacidad,Descripcion,NombreSalon);                                        
                     this.SalonesViewModel.agregarElemento(nuevo);
                     await dialogCoordinator.ShowMessageAsync(this,"Agregar Salon","Elemento agregado correctamente!!!",MessageDialogStyle.Affirmative);
                 }else{
-                    this.instanciaTemporal.Salon_id=this.Salon_id;
+                    this.instanciaTemporal.SalonId=this.SalonId;
                     this.instanciaTemporal.Capacidad=this.Capacidad;
                     this.instanciaTemporal.Descripcion=this.Descripcion;
-                    this.instanciaTemporal.Nombre_salon=this.Nombre_salon;
+                    this.instanciaTemporal.NombreSalon=this.NombreSalon;
                     
                     int posicision = this.SalonesViewModel.Listado.IndexOf(this.SalonesViewModel.Seleccionado);
                     this.SalonesViewModel.Listado.RemoveAt(posicision);
