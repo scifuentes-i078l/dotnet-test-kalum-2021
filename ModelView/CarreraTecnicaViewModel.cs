@@ -16,7 +16,7 @@ namespace Kalum2021.ModelView
 
         public CarrerasTecnicasViewModel CarrerasTecnicasViewModel {get;set;}
 
-        public string Codigo_Carrera {get;set;}
+        public string CarreraId {get;set;}
 
         public string Nombre {get;set;}
 
@@ -32,7 +32,7 @@ namespace Kalum2021.ModelView
             if (this.CarrerasTecnicasViewModel.Seleccionado!=null)
             {
                 instanciaTemporal = new CarreraTecnica();
-                this.Codigo_Carrera=this.CarrerasTecnicasViewModel.Seleccionado.Codigo_Carrera;
+                this.CarreraId=this.CarrerasTecnicasViewModel.Seleccionado.CarreraId;
                 
                 this.Nombre=this.CarrerasTecnicasViewModel.Seleccionado.Nombre;
                           
@@ -51,11 +51,11 @@ namespace Kalum2021.ModelView
             {
 
                 if (this.CarrerasTecnicasViewModel.Seleccionado  == null){                    
-                    CarreraTecnica nuevo = new CarreraTecnica(Codigo_Carrera,Nombre);                                        
+                    CarreraTecnica nuevo = new CarreraTecnica(CarreraId,Nombre);                                        
                     this.CarrerasTecnicasViewModel.agregarElemento(nuevo);
                     await dialogCoordinator.ShowMessageAsync(this,"Agregar Carrera Tecnica","Elemento agregado correctamente!!!",MessageDialogStyle.Affirmative);
                 }else{
-                    this.instanciaTemporal.Codigo_Carrera=this.Codigo_Carrera;
+                    this.instanciaTemporal.CarreraId=this.CarreraId;
                     
                     this.instanciaTemporal.Nombre=this.Nombre;
                     

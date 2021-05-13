@@ -2,9 +2,11 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using Kalum2021.DataContext;
 using Kalum2021.Models;
 using Kalum2021.Views;
 using MahApps.Metro.Controls.Dialogs;
+using System.Linq;
 
 namespace Kalum2021.ModelView
 {
@@ -12,7 +14,24 @@ namespace Kalum2021.ModelView
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
-        public ObservableCollection<CarreraTecnica> Listado {get;set;}
+
+        public KalumDBContext dBContext = new KalumDBContext();
+
+        private ObservableCollection<CarreraTecnica> _Listado;
+        public ObservableCollection<CarreraTecnica> Listado {
+            get
+            {
+                if (this._Listado ==null)
+                {
+                    this._Listado= new ObservableCollection<CarreraTecnica>(dBContext.CarrerasTecnicas.ToList());
+                }
+                return this._Listado;
+            }
+            set
+            {
+                this._Listado=value;
+            }
+            }
         public CarreraTecnica Seleccionado {get;set;}
 
         public CarrerasTecnicasViewModel Instancia {get;set;}
@@ -24,9 +43,7 @@ namespace Kalum2021.ModelView
         public CarrerasTecnicasViewModel(IDialogCoordinator instanceIDialog)
         {
             this.Instancia=this;
-            this.dialogCoordinator=instanceIDialog;
-            this.Listado= new ObservableCollection<CarreraTecnica>();
-            this.Listado.Add(new CarreraTecnica("1","CarreraTecnica 1"));            
+            this.dialogCoordinator=instanceIDialog;            
         }
 
         public void agregarElemento(CarreraTecnica nuevoElemento)

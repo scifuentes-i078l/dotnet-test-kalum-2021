@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0"  Grid.Column="0" Content="Codigo" />
-        <TextBox Grid.Row="0" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Codigo_Carrera}"/>
+        <TextBox Grid.Row="0" Margin="0,5,0,0" Grid.Column="1" Text="{Binding CarreraId}"/>
         <Label Grid.Row="1"    Grid.Column="0" Content="Nombre" />
         <TextBox Grid.Row="1" Margin="0,5,0,0"  Grid.Column="1" Text="{Binding Nombre}"/>             
         <StackPanel HorizontalAlignment="Right" Margin = "5" Grid.Row="5" Grid.ColumnSpan="2"  Orientation="Horizontal" >
