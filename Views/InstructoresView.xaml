@@ -8,7 +8,7 @@
                  Dialog:DialogParticipation.Register="{Binding}"
         xmlns:local="clr-namespace:Kalum2021"
         mc:Ignorable="d"
-        Title="Lista de Instructores" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Lista de Instructores" Height="450" Width="1500" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
