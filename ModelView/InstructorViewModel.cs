@@ -17,7 +17,7 @@ namespace Kalum2021.ModelView
         public InstructoresViewModel InstructoresViewModel {get;set;}
 
        
-    public string Instructor_id {get; set;}
+    public string InstructorId {get; set;}
     public string  Nombres {get; set;}
     public string Apellidos {get; set;}
     public string  Comentario {get; set;}
@@ -38,7 +38,7 @@ namespace Kalum2021.ModelView
             if (this.InstructoresViewModel.Seleccionado!=null)
             {
                 instanciaTemporal = new Instructor();
-                this.Instructor_id=this.InstructoresViewModel.Seleccionado.Instructor_id;
+                this.InstructorId=this.InstructoresViewModel.Seleccionado.InstructorId;
                 this.Nombres=this.InstructoresViewModel.Seleccionado.Nombres;
                 this.Apellidos=this.InstructoresViewModel.Seleccionado.Apellidos;
                 this.Comentario=this.InstructoresViewModel.Seleccionado.Comentario;             
@@ -61,11 +61,11 @@ namespace Kalum2021.ModelView
             {
 
                 if (this.InstructoresViewModel.Seleccionado  == null){                    
-                    Instructor nuevo = new Instructor(Instructor_id,Nombres,Apellidos,Comentario,Direccion,Estatus,Foto,Telefono);                                        
+                    Instructor nuevo = new Instructor(InstructorId,Nombres,Apellidos,Comentario,Direccion,Estatus,Foto,Telefono);                                        
                     this.InstructoresViewModel.agregarElemento(nuevo);
                     await dialogCoordinator.ShowMessageAsync(this,"Agregar Instructor","Elemento agregado correctamente!!!",MessageDialogStyle.Affirmative);
                 }else{
-                    this.instanciaTemporal.Instructor_id=this.Instructor_id;
+                    this.instanciaTemporal.InstructorId=this.InstructorId;
 					this.instanciaTemporal.Nombres=this.Nombres;
 					this.instanciaTemporal.Apellidos=this.Apellidos;
 					this.instanciaTemporal.Comentario=this.Comentario;
