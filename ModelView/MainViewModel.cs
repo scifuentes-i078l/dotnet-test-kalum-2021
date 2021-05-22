@@ -36,6 +36,14 @@ namespace Kalum2021.ModelView
                     RolesView ventanaRoles = new RolesView();
                     ventanaRoles.ShowDialog();
                 break;
+                case "Alumnos":
+                    AlumnosView ventanaAlumnos = new AlumnosView();
+                    ventanaAlumnos.ShowDialog();
+                break;
+                case "Instructores":
+                    InstructoresView ventanaInstructores = new InstructoresView();
+                    ventanaInstructores.ShowDialog();
+                break;
                 case "Clases":
                     ClasesView ventanaClases = new ClasesView();
                     ventanaClases.ShowDialog();
