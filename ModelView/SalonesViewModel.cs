@@ -78,7 +78,16 @@ namespace Kalum2021.ModelView
                     MessageDialogStyle.AffirmativeAndNegative);
                     if (respuesta==MessageDialogResult.Affirmative) 
                     {
-                         this.Listado.Remove(Seleccionado);
+                          try{
+                        int posicion = this.Listado.IndexOf(this.Seleccionado);
+                         this.dBContext.Remove(this.Seleccionado);
+                         this.dBContext.SaveChanges();
+                         this.Listado.RemoveAt(posicion);
+                         await this.dialogCoordinator.ShowMessageAsync(this,"Salones","Elemento Eliminado");                    
+                        }catch (Exception e){
+                            await this.dialogCoordinator.ShowMessageAsync(this,"Error",e.Message);
+
+                        }
                     }
                 }
                 
