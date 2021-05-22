@@ -59,3 +59,7 @@ C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netco
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netcoreapp3.1\de\MahApps.Metro.resources.dll
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\App.baml
 C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Kalum2021.csproj.CopyComplete
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\AlumnosView.g.cs
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\AlumnosView.baml
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\AlumnoView.g.cs
+C:\Users\Estudiante\Mis documentos\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\AlumnoView.baml
