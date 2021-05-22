@@ -1,9 +1,6 @@
 using System.IO;
 using Kalum2021.Models;
-<<<<<<< HEAD
-=======
 using Kalum2021.ModelView;
->>>>>>> feature/clase
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -12,12 +9,9 @@ namespace Kalum2021.DataContext
     public class KalumDBContext :  DbContext
     {
         
-<<<<<<< HEAD
         public DbSet<Alumno> Alumnos {get;set;}
         public DbSet<Instructor> Instructores {get;set;}
-=======
         public DbSet<Clase> Clases {get;set;}
->>>>>>> feature/clase
         public KalumDBContext(DbContextOptions<KalumDBContext> options)
             :base(options)
         {

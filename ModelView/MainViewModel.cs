@@ -27,7 +27,7 @@ namespace Kalum2021.ModelView
         public void Execute(object parametro)
         {
 
-            switch(parametro){
+              switch(parametro){
                 case "Usuarios":
                     UsuariosView ventanaUsuarios = new UsuariosView();
                     ventanaUsuarios.ShowDialog();
@@ -36,12 +36,6 @@ namespace Kalum2021.ModelView
                     RolesView ventanaRoles = new RolesView();
                     ventanaRoles.ShowDialog();
                 break;
-                case "Alumnos":
-                    AlumnosView ventanaAlumnos = new AlumnosView();
-                    ventanaAlumnos.ShowDialog();
-                case "Instructores":
-                    InstructoresView ventanaInstructores = new InstructoresView();
-                    ventanaInstructores.ShowDialog();
                 case "Clases":
                     ClasesView ventanaClases = new ClasesView();
                     ventanaClases.ShowDialog();
