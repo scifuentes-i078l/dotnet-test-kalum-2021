@@ -39,6 +39,9 @@ namespace Kalum2021.ModelView
                 case "Alumnos":
                     AlumnosView ventanaAlumnos = new AlumnosView();
                     ventanaAlumnos.ShowDialog();
+                case "Instructores":
+                    InstructoresView ventanaInstructores = new InstructoresView();
+                    ventanaInstructores.ShowDialog();
                 break;
             }
         }

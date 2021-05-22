@@ -9,6 +9,7 @@ namespace Kalum2021.DataContext
     {
         
         public DbSet<Alumno> Alumnos {get;set;}
+        public DbSet<Instructor> Instructores {get;set;}
         public KalumDBContext(DbContextOptions<KalumDBContext> options)
             :base(options)
         {
@@ -30,6 +31,9 @@ namespace Kalum2021.DataContext
             modelBuilder.Entity<Alumno>()
             .ToTable(name: "Alumnos")
             .HasKey(c => new {c.Carne});
+            modelBuilder.Entity<Instructor>()
+            .ToTable(name: "Instructores")
+            .HasKey(f => new {f.InstructorId});
         }
 
         public KalumDBContext()
