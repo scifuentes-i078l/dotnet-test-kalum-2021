@@ -8,7 +8,7 @@
                  Dialog:DialogParticipation.Register="{Binding}"
         xmlns:local="clr-namespace:Kalum2021"
         mc:Ignorable="d"
-        Title="Usuario" Height="300" Width="800" WindowStartupLocation="CenterScreen" Name="FrmAlumno">
+        Title="{Binding Titulo}" Height="300" Width="800" WindowStartupLocation="CenterScreen" Name="FrmAlumno">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"  />
@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0"  Grid.Column="0" Content="Carne" />
-        <TextBox Grid.Row="0" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Carne}"/>
+        <TextBox Grid.Row="0" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Carne}" IsReadOnly="True"/>
         <Label Grid.Row="1"    Grid.Column="0" Content="NoExpediente" />
         <TextBox Grid.Row="1" Margin="0,5,0,0"  Grid.Column="1" Text="{Binding NoExpediente}"/>
         <Label Grid.Row="2"   Grid.Column="0" Content="Apellidos" />

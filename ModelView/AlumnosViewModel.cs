@@ -84,8 +84,20 @@ namespace Kalum2021.ModelView
                     MessageDialogStyle.AffirmativeAndNegative);
                     if (respuesta==MessageDialogResult.Affirmative) 
                     {
-                         this.ListadoAlumnos.Remove(Seleccionado);
+                        try{
+                        int posicion = this.ListadoAlumnos.IndexOf(this.Seleccionado);
+                        // this.ListadoAlumnos.Remove(this.Seleccionado);
+                         this.dBContext.Remove(this.Seleccionado);
+                         this.dBContext.SaveChanges();
+                         this.ListadoAlumnos.RemoveAt(posicion);
+                         await this.dialogCoordinator.ShowMessageAsync(this,"Alumnos","Elemento Eliminado");                    
+                        }catch (Exception e){
+                            await this.dialogCoordinator.ShowMessageAsync(this,"Error",e.Message);
+
+                        }
+                        
                     }
+
                 }
                 
             }

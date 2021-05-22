@@ -2,8 +2,10 @@ using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
+using Kalum2021.DataContext;
 using Kalum2021.Models;
 using MahApps.Metro.Controls.Dialogs;
+using Microsoft.EntityFrameworkCore;
 
 namespace Kalum2021.ModelView
 {
@@ -13,6 +15,8 @@ namespace Kalum2021.ModelView
         public event PropertyChangedEventHandler PropertyChanged;
 
         public AlumnoViewModel Instancia {get;set;}
+
+        private KalumDBContext dBcontext;
 
         public AlumnosViewModel AlumnosViewModel {get;set;}
 
@@ -30,11 +34,14 @@ namespace Kalum2021.ModelView
 
         public IDialogCoordinator dialogCoordinator;
 
+        public String Titulo {get;set;}
+
         public AlumnoViewModel(AlumnosViewModel AlumnosViewModel, IDialogCoordinator instance)
         {
             this.dialogCoordinator=instance;
             this.Instancia=this;
             this.AlumnosViewModel=AlumnosViewModel;
+            this.Titulo="Nuevo Registro";
             if (this.AlumnosViewModel.Seleccionado!=null)
             {
                 AlumnoTemporal = new Alumno();
@@ -43,7 +50,9 @@ namespace Kalum2021.ModelView
                 this.Apellidos=this.AlumnosViewModel.Seleccionado.Apellidos;
                 this.Nombres=this.AlumnosViewModel.Seleccionado.Nombres;
                 this.Email=this.AlumnosViewModel.Seleccionado.Email;
+                this.Titulo="Modificar Registro";
             }
+            this.dBcontext= new KalumDBContext();
             
         }
 
@@ -56,22 +65,29 @@ namespace Kalum2021.ModelView
         {
             if (parametro is Window)
             {
-
-                if (this.AlumnosViewModel.Seleccionado  == null){                    
-                    Alumno nuevo = new Alumno(Carne,NoExpediente,Apellidos,Nombres,Email);                                        
-                    this.AlumnosViewModel.agregarElemento(nuevo);
-                    await dialogCoordinator.ShowMessageAsync(this,"Agregar Alumno","Elemento agregado correctamente!!!",MessageDialogStyle.Affirmative);
-                }else{
-                    this.AlumnoTemporal.Carne=this.Carne;
-                    this.AlumnoTemporal.NoExpediente=this.NoExpediente;
-                    this.AlumnoTemporal.Apellidos=this.Apellidos;
-                    this.AlumnoTemporal.Nombres=this.Nombres;
-                    this.AlumnoTemporal.Email=this.Email;
-                    int posicision = this.AlumnosViewModel.ListadoAlumnos.IndexOf(this.AlumnosViewModel.Seleccionado);
-                    this.AlumnosViewModel.ListadoAlumnos.RemoveAt(posicision);
-                    this.AlumnosViewModel.ListadoAlumnos.Insert(posicision,AlumnoTemporal);
-                    await dialogCoordinator.ShowMessageAsync(this,"Modificar Alumno","Elemento modificado correctamente!!!",MessageDialogStyle.Affirmative);
-                }
+                try {
+                    if (this.AlumnosViewModel.Seleccionado  == null){                    
+                        Alumno nuevo = new Alumno(Carne,NoExpediente,Apellidos,Nombres,Email);                                        
+                        this.AlumnosViewModel.agregarElemento(nuevo);
+                        this.dBcontext.Alumnos.Add(nuevo);                   
+                        await dialogCoordinator.ShowMessageAsync(this,"Agregar Alumno","Elemento agregado correctamente!!!",MessageDialogStyle.Affirmative);
+                    }else{
+                        this.AlumnoTemporal.Carne=this.AlumnosViewModel.Seleccionado.Carne;
+                        this.AlumnoTemporal.NoExpediente=this.NoExpediente;
+                        this.AlumnoTemporal.Apellidos=this.Apellidos;
+                        this.AlumnoTemporal.Nombres=this.Nombres;
+                        this.AlumnoTemporal.Email=this.Email;
+                        int posicision = this.AlumnosViewModel.ListadoAlumnos.IndexOf(this.AlumnosViewModel.Seleccionado);
+                        this.AlumnosViewModel.ListadoAlumnos.RemoveAt(posicision);
+                        this.AlumnosViewModel.ListadoAlumnos.Insert(posicision,AlumnoTemporal);
+                        await dialogCoordinator.ShowMessageAsync(this,"Modificar Alumno","Elemento modificado correctamente!!!",MessageDialogStyle.Affirmative);
+                        this.dBcontext.Entry(this.AlumnoTemporal).State = EntityState.Modified;
+                    }
+                    this.dBcontext.SaveChanges();
+                    //await this.dialogCoordinator.ShowMessageAsync(this,"Alumnos","registro actualizado");
+                 }catch (Exception e){
+                     await this.dialogCoordinator.ShowMessageAsync(this,"Error",e.Message);
+                 }
                 ((Window)parametro).Close();
             }
         }
