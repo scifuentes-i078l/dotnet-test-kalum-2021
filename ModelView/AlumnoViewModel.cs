@@ -6,6 +6,8 @@ using Kalum2021.DataContext;
 using Kalum2021.Models;
 using MahApps.Metro.Controls.Dialogs;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using Microsoft.Data.SqlClient;
 
 namespace Kalum2021.ModelView
 {
@@ -66,11 +68,20 @@ namespace Kalum2021.ModelView
             if (parametro is Window)
             {
                 try {
-                    if (this.AlumnosViewModel.Seleccionado  == null){                    
-                        Alumno nuevo = new Alumno(Carne,NoExpediente,Apellidos,Nombres,Email);                                        
-                        this.AlumnosViewModel.agregarElemento(nuevo);
-                        this.dBcontext.Alumnos.Add(nuevo);                   
+                    if (this.AlumnosViewModel.Seleccionado  == null){        
+                        var ApellidosParameter = new SqlParameter("@Apellidos",this.Apellidos);
+                        var NombresParameter = new SqlParameter("@Nombres",this.Nombres);
+                        var EmailParameter = new SqlParameter("@Email", this.Email);
+                        
+                        var Resultado =this.dBcontext.Alumnos.FromSqlRaw("sp_registrar_alumno @Apellidos,@Nombres,@Email",ApellidosParameter,NombresParameter,EmailParameter).ToList();
+
+                        foreach (Object registro in Resultado){
+                               this.AlumnosViewModel.ListadoAlumnos.Add((Alumno) registro) ;
+                        }
                         await dialogCoordinator.ShowMessageAsync(this,"Agregar Alumno","Elemento agregado correctamente!!!",MessageDialogStyle.Affirmative);
+
+                                 
+                        
                     }else{
                         this.AlumnoTemporal.Carne=this.AlumnosViewModel.Seleccionado.Carne;
                         this.AlumnoTemporal.NoExpediente=this.NoExpediente;
@@ -82,8 +93,9 @@ namespace Kalum2021.ModelView
                         this.AlumnosViewModel.ListadoAlumnos.Insert(posicision,AlumnoTemporal);
                         await dialogCoordinator.ShowMessageAsync(this,"Modificar Alumno","Elemento modificado correctamente!!!",MessageDialogStyle.Affirmative);
                         this.dBcontext.Entry(this.AlumnoTemporal).State = EntityState.Modified;
+                        this.dBcontext.SaveChanges();
                     }
-                    this.dBcontext.SaveChanges();
+                    
                     //await this.dialogCoordinator.ShowMessageAsync(this,"Alumnos","registro actualizado");
                  }catch (Exception e){
                      await this.dialogCoordinator.ShowMessageAsync(this,"Error",e.Message);
