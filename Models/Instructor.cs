@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Kalum2021.ModelView;
+
 namespace Kalum2021.Models
 {
 
@@ -14,6 +17,8 @@ namespace Kalum2021.Models
     public string  Estatus {get; set;}
     public string  Foto {get; set;}
     public string Telefono {get; set;}
+
+    public virtual List<Clase> Clases {get;set;}
 
     public Instructor(string InstructorId, string  Nombres, string Apellidos,string  Comentario,string  Direccion, string  Estatus,string  Foto,string Telefono)
     {

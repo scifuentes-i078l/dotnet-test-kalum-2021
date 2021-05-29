@@ -10,6 +10,8 @@ namespace Kalum2021.ModelView
         public int CupoMaximo {get; set;}
         public int CupoMinimo {get; set;}
 
+
+        
         public string CarreraId {get; set;}
         public string HorarioId {get; set;}
         public string InstructorId {get; set;}
