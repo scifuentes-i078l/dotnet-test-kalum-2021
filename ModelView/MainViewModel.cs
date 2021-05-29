@@ -54,6 +54,10 @@ namespace Kalum2021.ModelView
                  case "Clases":
                     ClasesView ventanaClases = new ClasesView();
                     ventanaClases.ShowDialog();
+                    break;
+                case "CarrerasTecnicas":
+                    CarrerasTecnicasView ventanaCarrerasTecnicas = new CarrerasTecnicasView();
+                    ventanaCarrerasTecnicas.ShowDialog();
                 break;
             }
         }

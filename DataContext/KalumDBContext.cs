@@ -15,6 +15,7 @@ namespace Kalum2021.DataContext
 
          public DbSet<Horario> Horarios {get;set;}
         public DbSet<Salon> Salones {get;set;}
+        public DbSet<CarreraTecnica> CarrerasTecnicas {get;set;}
         public KalumDBContext(DbContextOptions<KalumDBContext> options)
             :base(options)
         {
@@ -49,6 +50,9 @@ namespace Kalum2021.DataContext
             modelBuilder.Entity<Salon>()
             .ToTable(name: "Salones")
             .HasKey(b => new {b.SalonId});
+            modelBuilder.Entity<CarreraTecnica>()
+            .ToTable(name: "CarrerasTecnicas")
+            .HasKey(e => new {e.CarreraId});
         }
 
         public KalumDBContext()
