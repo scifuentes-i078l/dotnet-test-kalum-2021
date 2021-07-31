@@ -8,6 +8,7 @@ using MahApps.Metro.Controls.Dialogs;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.Data.SqlClient;
+using System.ComponentModel.DataAnnotations;
 
 namespace Kalum2021.ModelView
 {
@@ -25,11 +26,13 @@ namespace Kalum2021.ModelView
         public string Carne {get;set;}
 
         public string NoExpediente {get;set;}
-
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [Apellido]
         public string Apellidos {get;set;}
-        
+        [Required(ErrorMessage = "El campo {0} es requerido")]
         public string Nombres {get;set;}
-
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [EmailAddress]
         public string Email {get;set;}
 
         public Alumno AlumnoTemporal {get;set;}
