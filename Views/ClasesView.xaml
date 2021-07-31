@@ -8,37 +8,84 @@
                  Dialog:DialogParticipation.Register="{Binding}"
         xmlns:local="clr-namespace:Kalum2021"
         mc:Ignorable="d"
-        Title="Lista de Clases" Height="450" Width="1200" WindowStartupLocation="CenterScreen">
+        Title="Lista de Clases" Height="500" Width="990" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid Margin= "10" ColumnWidth ="*" CanUserAddRows="False" SelectedItem ="{Binding Seleccionado}" Grid.Row="0" Grid.Column="0" ItemsSource= "{Binding Listado}" AutoGenerateColumns = "false" >
+        <DataGrid Margin= "10" CanUserAddRows="False" SelectedItem ="{Binding Seleccionado}" Grid.Row="0" Grid.Column="0" ItemsSource= "{Binding Listado}" AutoGenerateColumns = "false" >
             <DataGrid.Columns>
             <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
                             EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
                             Header="Seleccionar"
                             Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}" />
-                <DataGridTextColumn Binding="{Binding ClaseId}" Header="ID" IsReadOnly="true"/>
-                <DataGridTextColumn Binding="{Binding Descripcion}" Header="Descripcion" IsReadOnly="true"/>
+               
+                <DataGridTextColumn Width="Auto" Binding="{Binding Descripcion}" Header="Descripcion" IsReadOnly="true"/>
+                <DataGridTextColumn Binding="{Binding CarreraTecnica.Nombre}" Header="Carrera" IsReadOnly="true"/>
                 <DataGridTextColumn Binding="{Binding Ciclo}" Header="Ciclo" IsReadOnly="true"/>
-                <DataGridTextColumn Binding="{Binding CupoMaximo}" Header="CupoMaximo" IsReadOnly="true"/>
-                <DataGridTextColumn Binding="{Binding CupoMinimo}" Header="CupoMinimo" IsReadOnly="true"/>
-                <DataGridTextColumn Binding="{Binding CarreraId}" Header="CarreraId" IsReadOnly="true"/>
-                <DataGridTextColumn Binding="{Binding HorarioId}" Header="HorarioId" IsReadOnly="true"/>
-                <DataGridTextColumn Binding="{Binding InstructorId}" Header="InstructorId" IsReadOnly="true"/>
-                <DataGridTextColumn Binding="{Binding SalonId}" Header="SalonId" IsReadOnly="true"/>
+
+                  <DataGridTemplateColumn Header="Horario       ">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="De "/>
+                            <TextBlock Text="{Binding Horario.HorarioInicio, StringFormat=hh\\:mm}"/>
+                            <TextBlock Text=" a "/>
+                            <TextBlock Text="{Binding  Horario.HorarioFinal, StringFormat=hh\\:mm}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                   <DataGridTemplateColumn Header="Cupo">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding CupoMaximo}"/>
+                            <TextBlock Text="/"/>
+                            <TextBlock Text="{Binding  CupoMinimo}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+           
+                
+              
+              
+                <DataGridTextColumn Binding="{Binding Salon.NombreSalon}" Header="Salon" IsReadOnly="true"/>
+
+                <DataGridTemplateColumn Header="Instructor">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Instructor.Apellidos}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding  Instructor.Nombres}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
 
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-            <Button  Content="Nuevo" Command="{Binding Instancia}" CommandParameter="Nuevo" Margin="5" />
-            <Button  Content="Eliminar" Command="{Binding Instancia}" CommandParameter="Eliminar" Margin="5"/>
-            <Button  Content="Modificar" Command="{Binding Instancia}" CommandParameter="Modificar" Margin="5"/>
+             <Button  Command="{Binding Instancia}" CommandParameter="Nuevo" Margin="5"  ToolTip="Nuevo">
+             <mah:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE7C3;" />
+             </Button>
+            <Button   Command="{Binding Instancia}" CommandParameter="Eliminar" Margin="5" ToolTip="Eliminar">
+            <mah:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE74D;" />
+            </Button>
+
+            
+            <Button   Command="{Binding Instancia}" CommandParameter="Modificar" Margin="5" ToolTip="Modificar">
+            <mah:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE70F;" />
+            </Button>
         </StackPanel>
     </Grid>
 </mah:MetroWindow>

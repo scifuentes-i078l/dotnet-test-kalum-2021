@@ -30,7 +30,23 @@ namespace Kalum2021.ModelView
                 this._ListadoAlumnos=value;
             }
             }
-        public Alumno Seleccionado {get;set;}
+         private Alumno _Seleccionado;
+        public Alumno Seleccionado 
+        {
+            get
+            {
+                return this._Seleccionado;
+
+            }
+            
+            set
+            {
+                this._Seleccionado=value;
+                NotificarCambio("Seleccionado");
+
+            }
+        
+        }
 
         public AlumnosViewModel Instancia {get;set;}
 

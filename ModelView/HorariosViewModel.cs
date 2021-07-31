@@ -4,25 +4,27 @@ using System.ComponentModel;
 using System.Windows.Input;
 using Kalum2021.DataContext;
 using Kalum2021.Models;
-using Kalum2021.Views;
-using MahApps.Metro.Controls.Dialogs;
 using System.Linq;
+using MahApps.Metro.Controls.Dialogs;
+using Kalum2021.Views;
 
 namespace Kalum2021.ModelView
 {
-    public class InstructoresViewModel : INotifyPropertyChanged, ICommand
+    public class HorariosViewModel : INotifyPropertyChanged, ICommand
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
-       public KalumDBContext dBContext = new KalumDBContext();
 
-        private ObservableCollection<Instructor> _Listado;
-        public ObservableCollection<Instructor> Listado {
+
+         public KalumDBContext dBContext = new KalumDBContext();
+
+        private ObservableCollection<Horario> _Listado;
+        public ObservableCollection<Horario> Listado {
             get
             {
                 if (this._Listado ==null)
                 {
-                    this._Listado= new ObservableCollection<Instructor>(dBContext.Instructores.ToList());
+                    this._Listado= new ObservableCollection<Horario>(dBContext.Horarios.ToList());
                 }
                 return this._Listado;
             }
@@ -31,8 +33,9 @@ namespace Kalum2021.ModelView
                 this._Listado=value;
             }
             }
-        private Instructor _Seleccionado;
-        public Instructor Seleccionado 
+        
+        private Horario _Seleccionado;
+        public Horario Seleccionado 
         {
             get
             {
@@ -55,33 +58,34 @@ namespace Kalum2021.ModelView
             }
         }
 
-        public InstructoresViewModel Instancia {get;set;}
+        public bool CanExecute(object parameter)
+        {
+             return true;
+        }
+
+        public HorariosViewModel Instancia {get;set;}
         
         public IDialogCoordinator dialogCoordinator;
 
-        private const string tituloVentana="Instructor";
+        private const string tituloVentana="Horario";
 
-        public InstructoresViewModel(IDialogCoordinator instanceIDialog)
+        public HorariosViewModel(IDialogCoordinator instanceIDialog)
         {
             this.Instancia=this;
-            this.dialogCoordinator=instanceIDialog;            
+            this.dialogCoordinator=instanceIDialog;
+        
         }
 
-        public void agregarElemento(Instructor nuevoElemento)
+        public void agregarElemento(Horario nuevoElemento)
         {
             this.Listado.Add(nuevoElemento);
         }
-        public bool CanExecute(object parametro)
-        {
-           return true;
-        }
-
-        public async void Execute(object parametro)
+       public async void Execute(object parametro)
         {
             if (parametro.Equals("Nuevo"))
             {
                 this.Seleccionado=null;
-                InstructorView vistaNuevo= new InstructorView(Instancia);
+                HorarioView vistaNuevo= new HorarioView(Instancia);
                 vistaNuevo.Show();                                
             }
             else if (parametro.Equals("Eliminar"))
@@ -98,12 +102,12 @@ namespace Kalum2021.ModelView
                     MessageDialogStyle.AffirmativeAndNegative);
                     if (respuesta==MessageDialogResult.Affirmative) 
                     {
-                         try{
+                          try{
                         int posicion = this.Listado.IndexOf(this.Seleccionado);
                          this.dBContext.Remove(this.Seleccionado);
                          this.dBContext.SaveChanges();
                          this.Listado.RemoveAt(posicion);
-                         await this.dialogCoordinator.ShowMessageAsync(this,"Instructores","Elemento Eliminado");                    
+                         await this.dialogCoordinator.ShowMessageAsync(this,"Horarios","Elemento Eliminado");                    
                         }catch (Exception e){
                             await this.dialogCoordinator.ShowMessageAsync(this,"Error",e.Message);
 
@@ -120,10 +124,14 @@ namespace Kalum2021.ModelView
                 }
                 else
                 {
-                    InstructorView vistaModificar = new InstructorView(Instancia);
+                    HorarioView vistaModificar = new HorarioView(Instancia);
                     vistaModificar.ShowDialog();
                 }
             }
         }
+
+
+
+
     }
 }

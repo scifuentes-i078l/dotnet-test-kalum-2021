@@ -7,6 +7,7 @@ using Kalum2021.Models;
 using Kalum2021.Views;
 using MahApps.Metro.Controls.Dialogs;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Kalum2021.ModelView
 {
@@ -18,11 +19,14 @@ namespace Kalum2021.ModelView
 
         private ObservableCollection<Clase> _Listado;
         public ObservableCollection<Clase> Listado {
-            get
+            get 
             {
                 if (this._Listado ==null)
-                {
-                    this._Listado= new ObservableCollection<Clase>(dBContext.Clases.ToList());
+                {try{
+                    this._Listado= new ObservableCollection<Clase>(dBContext.Clases.Include(c => c.Instructor).Include(c => c.CarreraTecnica).Include(c => c.Salon).Include(c =>c.Horario).ToList());
+                      }catch (Exception e){
+                     Console.WriteLine("Error"+e.Message);
+                 }
                 }
                 return this._Listado;
             }
@@ -32,7 +36,33 @@ namespace Kalum2021.ModelView
             }
             }
         
-        public Clase Seleccionado {get;set;}
+
+    private Clase _Seleccionado;
+
+
+
+        public Clase Seleccionado 
+        {
+            get
+            {
+                return this._Seleccionado;
+
+            }
+            
+            set
+            {
+                this._Seleccionado=value;
+                NotificarCambio("Seleccionado");
+
+            }
+        
+        }
+
+        public void NotificarCambio(String Propiedad){
+            if (PropertyChanged!=null){
+                PropertyChanged(this, new PropertyChangedEventArgs(Propiedad));
+            }
+        }
 
         public ClasesViewModel Instancia {get;set;}
         
@@ -56,13 +86,15 @@ namespace Kalum2021.ModelView
            return true;
         }
 
+        
+
         public async void Execute(object parametro)
         {
             if (parametro.Equals("Nuevo"))
             {
                 this.Seleccionado=null;
-                //ClaseView vistaNuevo= new ClaseView(Instancia);
-                //vistaNuevo.Show();                                
+                ClaseView vistaNuevo= new ClaseView(this.Instancia);
+                vistaNuevo.Show();                                
             }
             else if (parametro.Equals("Eliminar"))
             {
@@ -100,8 +132,8 @@ namespace Kalum2021.ModelView
                 }
                 else
                 {
-                   // ClaseView vistaModificar = new ClaseView(Instancia);
-                    //vistaModificar.ShowDialog();
+                    ClaseView vistaModificar = new ClaseView(Instancia);
+                    vistaModificar.ShowDialog();
                 }
             }
         }

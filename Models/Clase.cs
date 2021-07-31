@@ -1,3 +1,5 @@
+using Kalum2021.Models;
+
 namespace Kalum2021.ModelView
 {
     public class Clase
@@ -9,14 +11,15 @@ namespace Kalum2021.ModelView
         public int Ciclo {get; set;}
         public int CupoMaximo {get; set;}
         public int CupoMinimo {get; set;}
-
-
         
         public string CarreraId {get; set;}
         public string HorarioId {get; set;}
         public string InstructorId {get; set;}
         public string SalonId {get; set;}
-
+        public virtual CarreraTecnica CarreraTecnica {get;set;}
+        public virtual Salon Salon {get;set;}        
+        public virtual Instructor Instructor {get;set;}
+        public virtual Horario Horario {get;set;}        
         
         public Clase(string ClaseId, string Descripcion, int Ciclo, int CupoMaximo, int CupoMinimo, string CarreraId, string HorarioId, string InstructorId, string SalonId)
         {

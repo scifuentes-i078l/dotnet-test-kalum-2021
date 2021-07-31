@@ -8,11 +8,11 @@
                  Dialog:DialogParticipation.Register="{Binding}"
         xmlns:local="clr-namespace:Kalum2021"
         mc:Ignorable="d"
-        Title="Lista de Salones" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Lista de Salones" Height="350" Width="650" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -22,17 +22,24 @@
             <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
                             EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
                             Header="Seleccionar"
-                            Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}" />
-                <DataGridTextColumn Binding="{Binding SalonId}" Header="ID" IsReadOnly="true"/>
+                            Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}" />                
                 <DataGridTextColumn Binding="{Binding Capacidad}" Header="Capacidad" IsReadOnly="true"/>
                 <DataGridTextColumn Binding="{Binding Descripcion}" Header="Descripcion" IsReadOnly="true"/>
                 <DataGridTextColumn Binding="{Binding NombreSalon}" Header="Nombre" IsReadOnly="true"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-            <Button  Content="Nuevo" Command="{Binding Instancia}" CommandParameter="Nuevo" Margin="5" />
-            <Button  Content="Eliminar" Command="{Binding Instancia}" CommandParameter="Eliminar" Margin="5"/>
-            <Button  Content="Modificar" Command="{Binding Instancia}" CommandParameter="Modificar" Margin="5"/>
+             <Button  Command="{Binding Instancia}" CommandParameter="Nuevo" Margin="5"  ToolTip="Nuevo">
+             <mah:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE7C3;" />
+             </Button>
+            <Button   Command="{Binding Instancia}" CommandParameter="Eliminar" Margin="5" ToolTip="Eliminar">
+            <mah:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE74D;" />
+            </Button>
+
+            
+            <Button   Command="{Binding Instancia}" CommandParameter="Modificar" Margin="5" ToolTip="Modificar">
+            <mah:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE70F;" />
+            </Button>
         </StackPanel>
     </Grid>
 </mah:MetroWindow>

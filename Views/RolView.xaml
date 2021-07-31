@@ -6,22 +6,23 @@
           xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Kalum2021"
         mc:Ignorable="d"
-        Title="Rol" Height="450" Width="800" WindowStartupLocation="CenterScreen" Name="FrmRol">
+        Title="Rol" Height="120" Width="250" WindowStartupLocation="CenterScreen" Name="FrmRol">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="45" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="Rol" />
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Rol}"/>
-        <StackPanel Grid.Row="1" Grid.Column="0"  Orientation="Horizontal" >
-            <Button  Content="Guardar" Command="{Binding Instancia}" CommandParameter="{Binding ElementName=FrmRol}"/>
-            
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Rol}" Margin="0,5,0,0" />
+        <StackPanel Grid.Row="1" Grid.Column="2"  Grid.ColumnSpan="2" Orientation="Horizontal"  HorizontalAlignment="Right" >            
+              <Button  Width="50"  Command="{Binding Instancia}" CommandParameter="{Binding ElementName=FrmRol}" ToolTip="Guardar">
+             <mah:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE74E;" />
+            </Button>  
         </StackPanel>
         
 

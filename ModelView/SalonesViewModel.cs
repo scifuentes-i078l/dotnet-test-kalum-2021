@@ -32,7 +32,29 @@ namespace Kalum2021.ModelView
             }
             }
         
-        public Salon Seleccionado {get;set;}
+        private Salon _Seleccionado;
+        public Salon Seleccionado 
+        {
+            get
+            {
+                return this._Seleccionado;
+
+            }
+            
+            set
+            {
+                this._Seleccionado=value;
+                NotificarCambio("Seleccionado");
+
+            }
+        
+        }
+
+        public void NotificarCambio(String Propiedad){
+            if (PropertyChanged!=null){
+                PropertyChanged(this, new PropertyChangedEventArgs(Propiedad));
+            }
+        }
 
         public SalonesViewModel Instancia {get;set;}
         

@@ -60,7 +60,7 @@ namespace Kalum2021.ModelView
             {
                 try {
                 if (this.CarrerasTecnicasViewModel.Seleccionado  == null){                    
-                    CarreraTecnica nuevo = new CarreraTecnica(CarreraId,Nombre);                                        
+                    CarreraTecnica nuevo = new CarreraTecnica(Guid.NewGuid().ToString(),Nombre);                                        
                     this.CarrerasTecnicasViewModel.agregarElemento(nuevo);
                     this.dBcontext.CarrerasTecnicas.Add(nuevo);
                     await dialogCoordinator.ShowMessageAsync(this,"Agregar Carrera Tecnica","Elemento agregado correctamente!!!",MessageDialogStyle.Affirmative);

@@ -32,7 +32,29 @@ namespace Kalum2021.ModelView
                 this._Listado=value;
             }
             }
-        public CarreraTecnica Seleccionado {get;set;}
+        private CarreraTecnica _Seleccionado;
+        public CarreraTecnica Seleccionado 
+        {
+            get
+            {
+                return this._Seleccionado;
+
+            }
+            
+            set
+            {
+                this._Seleccionado=value;
+                NotificarCambio("Seleccionado");
+
+            }
+        
+        }
+
+        public void NotificarCambio(String Propiedad){
+            if (PropertyChanged!=null){
+                PropertyChanged(this, new PropertyChangedEventArgs(Propiedad));
+            }
+        }
 
         public CarrerasTecnicasViewModel Instancia {get;set;}
         

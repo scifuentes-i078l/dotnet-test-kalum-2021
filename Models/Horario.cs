@@ -7,9 +7,15 @@ namespace Kalum2021.Models
     public class Horario
     {
         public string HorarioId{get;set;}
-        public DateTime  HoarioInicio{get;set;}
-        public DateTime  HoarioFinal{get;set;}
+        public TimeSpan  HorarioInicio{get;set;}
+        public TimeSpan  HorarioFinal{get;set;}
+        public virtual List<Clase> Clases {get;set;}
 
-        public List<Clase> Clases {get;set;}
+        public override string ToString()
+        {
+            return $"{this.HorarioInicio:hh\\:mm} - {this.HorarioFinal:hh\\:mm}";
+        }
     }
+
+    
 }

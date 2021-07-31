@@ -8,10 +8,10 @@
                  Dialog:DialogParticipation.Register="{Binding}"
         xmlns:local="clr-namespace:Kalum2021"
         mc:Ignorable="d"
-        Title="{Binding Titulo}" Height="350" Width="800" WindowStartupLocation="CenterScreen" Name="FrmInstructor">
+        Title="{Binding Titulo}" Height="300" Width="550" WindowStartupLocation="CenterScreen" Name="FrmInstructor">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>            
@@ -19,31 +19,33 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0"  Grid.Column="0" Content="Id" />
-        <TextBox Grid.Row="0" Margin="0,5,0,0" Grid.Column="1" Text="{Binding InstructorId}"/>
-        <Label Grid.Row="1"    Grid.Column="0" Content="Nombres" />
-        <TextBox Grid.Row="1" Margin="0,5,0,0"  Grid.Column="1" Text="{Binding Nombres}"/>
-        <Label Grid.Row="2"   Grid.Column="0" Content="Apellidos" />
-        <TextBox Grid.Row="2" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Apellidos}"/>
-        <Label Grid.Row="3"  Grid.Column="0" Content="Comentario" />
-        <TextBox Grid.Row="3" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Comentario}"/>        
-		<Label Grid.Row="4"  Grid.Column="0" Content="Direccion" />
-        <TextBox Grid.Row="4" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Direccion}"/>
-        <Label Grid.Row="5"    Grid.Column="0" Content="Estatus" />
-        <TextBox Grid.Row="5" Margin="0,5,0,0"  Grid.Column="1" Text="{Binding Estatus}"/>
-        <Label Grid.Row="6"   Grid.Column="0" Content="Foto" />
-        <TextBox Grid.Row="6" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Foto}"/>
-        <Label Grid.Row="7"  Grid.Column="0" Content="Telefono" />
-        <TextBox Grid.Row="7" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Telefono}"/>        
-        <StackPanel HorizontalAlignment="Right" Margin = "5" Grid.Row="8" Grid.ColumnSpan="2"  Orientation="Horizontal" >
-            <Button  Width="200" Content="Guardar" Command="{Binding Instancia}" CommandParameter="{Binding ElementName=FrmInstructor}"/>            
+       <!-- <Label Grid.Row="0"  Grid.Column="0" Content="Id" />
+        <TextBox Grid.Row="0" Margin="0,5,0,0" Grid.Column="1" Text="{Binding InstructorId}"/>-->
+        <Label Grid.Row="0"    Grid.Column="0" Content="Nombres" />
+        <TextBox Grid.Row="0" Margin="0,5,0,0"  Grid.Column="1" Text="{Binding Nombres}"/>
+        <Label Grid.Row="1"   Grid.Column="0" Content="Apellidos" />
+        <TextBox Grid.Row="1" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Apellidos}"/>
+        <Label Grid.Row="2"  Grid.Column="0" Content="Comentario" />
+        <TextBox Grid.Row="2" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Comentario}"/>        
+		<Label Grid.Row="3"  Grid.Column="0" Content="Direccion" />
+        <TextBox Grid.Row="3" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Direccion}"/>
+        <Label Grid.Row="4"    Grid.Column="0" Content="Estatus" />
+        <TextBox Grid.Row="4" Margin="0,5,0,0"  Grid.Column="1" Text="{Binding Estatus}"/>
+        <Label Grid.Row="5"   Grid.Column="0" Content="Foto" />
+        <TextBox Grid.Row="5" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Foto}"/>
+        <Label Grid.Row="6"  Grid.Column="0" Content="Telefono" />
+        <TextBox Grid.Row="6" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Telefono}"/>        
+        <StackPanel HorizontalAlignment="Right" Margin = "5" Grid.Row="7" Grid.ColumnSpan="2"  Orientation="Horizontal" >            
+            <Button  Width="50"  Command="{Binding Instancia}" CommandParameter="{Binding ElementName=FrmInstructor}" ToolTip="Guardar">
+             <mah:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE74E;" />
+            </Button>             
         </StackPanel>      
 
     </Grid>

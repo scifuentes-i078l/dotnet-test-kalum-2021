@@ -18,7 +18,23 @@ namespace Kalum2021.ModelView
 
          public RolesViewModel Instancia {get;set;}
 
-         public Role Seleccionado {get;set;}
+        private Role _Seleccionado;
+        public Role Seleccionado 
+        {
+            get
+            {
+                return this._Seleccionado;
+
+            }
+            
+            set
+            {
+                this._Seleccionado=value;
+                NotificarCambio("Seleccionado");
+
+            }
+        
+        }
 
         public RolesViewModel()        
         {

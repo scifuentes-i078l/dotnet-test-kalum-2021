@@ -24,6 +24,8 @@ namespace Kalum2021.ModelView
 
         public Usuarios Usuario {get;set;}
 
+        public String Titulo {get;set;}
+
         public event EventHandler CanExecuteChanged;
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -34,6 +36,7 @@ namespace Kalum2021.ModelView
             this.dialogCoordinator=instance;
             this.Instancia=this;
             this.UsuariosViewModel=UsuariosViewModel;
+             this.Titulo = "Nuevo Registro";
             if (this.UsuariosViewModel.Seleccionado!=null){
                 this.Usuario= new Usuarios();
                 this.Usuario.Enabled=this.UsuariosViewModel.Seleccionado.Enabled;
@@ -44,6 +47,7 @@ namespace Kalum2021.ModelView
                 this.Username=this.UsuariosViewModel.Seleccionado.Username;
                 this.HeightLblPassword ="0";
                 this.HeightTxtPassword = "0";
+                 this.Titulo = "Modificar Registro";
 
             }
             

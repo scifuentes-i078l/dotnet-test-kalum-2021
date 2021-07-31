@@ -36,6 +36,12 @@ namespace Kalum2021.Models
     {
         
     }
+
+        public override string ToString()
+        {
+            return $"{this.Apellidos} {this.Nombres}";
+        }
+
         
     }
 }

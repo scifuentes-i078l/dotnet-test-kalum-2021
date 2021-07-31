@@ -19,7 +19,31 @@ namespace Kalum2021.ModelView
         private IDialogCoordinator dialogCoordinator;
         public UsuariosViewModel Instancia {get;set;}
 
-        public Usuarios Seleccionado {get;set;}
+        //public Usuarios Seleccionado {get;set;}
+
+
+        private Usuarios _Seleccionado;
+
+
+
+        public Usuarios Seleccionado 
+        {
+            get
+            {
+                return this._Seleccionado;
+
+            }
+            
+            set
+            {
+                this._Seleccionado=value;
+                NotificarCambio("Seleccionado");
+
+            }
+        
+        }
+
+   
 
         public event EventHandler CanExecuteChanged;
 

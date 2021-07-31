@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Kalum2021.ModelView;
+
 namespace Kalum2021.Models
 {
     public class Salon
@@ -6,6 +9,8 @@ namespace Kalum2021.Models
         public int Capacidad {get;set;}
         public string Descripcion {get;set;}
         public string NombreSalon {get;set;}
+
+        public virtual List<Clase> Clases {get;set;}
 
         public Salon(string SalonId, int Capacidad, string Descripcion, string NombreSalon)
         {
@@ -17,6 +22,11 @@ namespace Kalum2021.Models
         public Salon()
         {
             
+        }
+
+        public override string ToString()
+        {
+            return this.NombreSalon;
         }
 
     }

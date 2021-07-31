@@ -8,7 +8,7 @@
                  Dialog:DialogParticipation.Register="{Binding}"
         xmlns:local="clr-namespace:Kalum2021"
         mc:Ignorable="d"
-        Title="Usuario" Height="300" Width="800" WindowStartupLocation="CenterScreen" Name="FrmUsuario">
+        Title="{Binding Titulo}" Height="250" Width="550" WindowStartupLocation="CenterScreen" Name="FrmUsuario">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"  />
@@ -16,7 +16,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -34,7 +34,10 @@
         <Label Grid.Row="4"   Grid.Column="0" Content="Password"  Height="{Binding HeightLblPassword}"/>
         <PasswordBox x:Name= "TxtPassword" Margin="0,5,0,0" Grid.Row="4" Grid.Column="1" Height="{Binding HeightTxtPassword}" />
         <StackPanel HorizontalAlignment="Right" Margin = "5" Grid.Row="5" Grid.ColumnSpan="2"  Orientation="Horizontal" >
-            <Button  Width="200" Content="Guardar" Command="{Binding Instancia}" CommandParameter="{Binding ElementName=FrmUsuario}"/>            
+            
+        <Button  Width="50"  Command="{Binding Instancia}" CommandParameter="{Binding ElementName=FrmUsuario}" ToolTip="Guardar">
+             <mah:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE74E;" />
+            </Button>            
         </StackPanel>
         
 

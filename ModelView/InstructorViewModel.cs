@@ -71,7 +71,7 @@ namespace Kalum2021.ModelView
                  try {
 
                 if (this.InstructoresViewModel.Seleccionado  == null){                    
-                    Instructor nuevo = new Instructor(InstructorId,Nombres,Apellidos,Comentario,Direccion,Estatus,Foto,Telefono);                                        
+                    Instructor nuevo = new Instructor(Guid.NewGuid().ToString(),Nombres,Apellidos,Comentario,Direccion,Estatus,Foto,Telefono);                                        
                     this.InstructoresViewModel.agregarElemento(nuevo);
                     this.dBcontext.Instructores.Add(nuevo);
                     await dialogCoordinator.ShowMessageAsync(this,"Agregar Instructor","Elemento agregado correctamente!!!",MessageDialogStyle.Affirmative);

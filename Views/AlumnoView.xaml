@@ -6,9 +6,13 @@
          xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
          xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
                  Dialog:DialogParticipation.Register="{Binding}"
+         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"        
+                 
         xmlns:local="clr-namespace:Kalum2021"
+         
+         ShowIconOnTitleBar="True"
         mc:Ignorable="d"
-        Title="{Binding Titulo}" Height="300" Width="800" WindowStartupLocation="CenterScreen" Name="FrmAlumno">
+        Title="{Binding Titulo}" Height="250" Width="550" WindowStartupLocation="CenterScreen" Name="FrmAlumno">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"  />
@@ -16,7 +20,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -34,7 +38,9 @@
         <Label Grid.Row="4"   Grid.Column="0" Content="Email"  />
          <TextBox Grid.Row="4" Margin="0,5,0,0" Grid.Column="1" Text="{Binding Email}"/>
         <StackPanel HorizontalAlignment="Right" Margin = "5" Grid.Row="5" Grid.ColumnSpan="2"  Orientation="Horizontal" >
-            <Button  Width="200" Content="Guardar" Command="{Binding Instancia}" CommandParameter="{Binding ElementName=FrmAlumno}"/>            
+            <Button  Width="50"  Command="{Binding Instancia}" CommandParameter="{Binding ElementName=FrmAlumno}" ToolTip="Guardar">
+             <mah:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE74E;" />
+            </Button>            
         </StackPanel>
         
 

@@ -64,7 +64,7 @@ namespace Kalum2021.ModelView
             {
             try {
                 if (this.SalonesViewModel.Seleccionado  == null){                    
-                    Salon nuevo = new Salon(SalonId,Capacidad,Descripcion,NombreSalon);                                        
+                    Salon nuevo = new Salon(Guid.NewGuid().ToString(),Capacidad,Descripcion,NombreSalon);                                        
                     this.SalonesViewModel.agregarElemento(nuevo);
                      this.dBcontext.Salones.Add(nuevo);
                     await dialogCoordinator.ShowMessageAsync(this,"Agregar Salon","Elemento agregado correctamente!!!",MessageDialogStyle.Affirmative);

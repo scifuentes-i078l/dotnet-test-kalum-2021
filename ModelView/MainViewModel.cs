@@ -59,6 +59,10 @@ namespace Kalum2021.ModelView
                     CarrerasTecnicasView ventanaCarrerasTecnicas = new CarrerasTecnicasView();
                     ventanaCarrerasTecnicas.ShowDialog();
                 break;
+                case "Horarios":
+                    HorariosView ventanaHorarios = new HorariosView();
+                    ventanaHorarios.ShowDialog();
+                break;
             }
         }
     }
