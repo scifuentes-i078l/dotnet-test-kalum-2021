@@ -19,9 +19,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-        <iconPacks:PackIconMaterial Kind="EmoticonCool"
-                                 VerticalAlignment="Center"
-                                 HorizontalAlignment="Center" />
+
             <RowDefinition/>
             <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
